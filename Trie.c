@@ -65,7 +65,7 @@ TrieNode *insertString(TrieNode *root, char *str)
 
 TrieNode *getNode(TrieNode *root, char *str)
 {
-    /* (Searches the trie for the specified string, str.) */
+    /* (Searches the trie for the specified string, str, & returns this string.) */
     
     if (root == NULL)
         return NULL;
@@ -90,7 +90,7 @@ TrieNode *getNode(TrieNode *root, char *str)
 
 void *auxiliarySubTrieFormatting(TrieNode *trie, char *SUBTRIE[], int wordAmount)
 {
-    /* (auxiliary subtrie function meant specifically for creating subtries.)*/
+    /* (auxiliary subtrie function meant specifically for creating subtries. In this instance a subtrie of the trie is each sentence.)*/
     
     int k = 0, j = 0;
     TrieNode *n = NULL;
@@ -143,7 +143,7 @@ TrieNode *buildTrie(char *filename)
         i++;
         
         if (*fileContent == '.') {
-            /* (build subtries with line below.) */
+            /* (build subtries with line below. A subtrie is one sentence in this instance of subtries.) */
             auxiliarySubTrieFormatting(trie, SUBTRIE, i);
             /* (reset 'i' for next sentence word count.) */
             i = 0;
