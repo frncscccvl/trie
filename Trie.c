@@ -5,15 +5,20 @@
 @  Copyright (c) 2013 francis caccavale. All rights reserved.
 */
 
-#define STRINGSIZE 1024
-#define WordPerSent 21
+#define STRINGSIZE 1024 /* (tangential amount of chars in a word.) */
+#define WordPerSent 21	/* (tangential amount of words in a sentence.) */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+#include <ctype.h> 
 
-#include "Trie.h"
+
+typedef struct TrieNode {
+    int count;
+    TrieNode *children[26];
+    TrieNode *subtrie;
+} TrieNode;
 
 
 TrieNode *createTrieNode(TrieNode *newLeaf)
@@ -212,6 +217,8 @@ int main(int argc, char **argv)
     
     /* (build main trie/subtries with line below.) */
     trie = buildTrie(argv[1]);
+    
+    /* (at this point one can utilize printTrie functions to clarify functionality.) */
     
     return 0;
 }
