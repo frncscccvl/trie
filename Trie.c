@@ -201,7 +201,6 @@ void printTrie(TrieNode *root, int useSubtrieFormatting)
 
 int main(int argc, char **argv)
 {
-    char fileContent[STRINGSIZE], functionContent[STRINGSIZE];
     FILE *fileINPUT = fopen(argv[2], "rb");
     
     /* check if file exist. */
@@ -211,7 +210,6 @@ int main(int argc, char **argv)
     TrieNode *trie = NULL;
     trie = createTrieNode(trie);
     
-    TrieNode *endNode = NULL;
     /* (build main trie/subtries with line below.) */
     trie = buildTrie(argv[1]);
     
