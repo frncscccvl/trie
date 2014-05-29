@@ -1,9 +1,8 @@
 /*
 @  Trie.c
-@  COP3502C
 @
-@  Created by September Caccavale on 7/11/13.
-@  Copyright (c) 2013 September Caccavale. All rights reserved.
+@  Created by francis caccavale on 7/11/13.
+@  Copyright (c) 2013 francis caccavale. All rights reserved.
 */
 
 #define STRINGSIZE 1024
@@ -205,6 +204,7 @@ int main(int argc, char **argv)
     char fileContent[STRINGSIZE], functionContent[STRINGSIZE];
     FILE *fileINPUT = fopen(argv[2], "rb");
     
+    /* check if file exist. */
     if (fileINPUT == 0)
         return 0;
     
@@ -214,28 +214,6 @@ int main(int argc, char **argv)
     TrieNode *endNode = NULL;
     /* (build main trie/subtries with line below.) */
     trie = buildTrie(argv[1]);
-    
-    while (fscanf(fileINPUT, " %s", fileContent) != EOF) {
-        
-        strcpy(functionContent, fileContent);
-        convertToLower(fileContent);
-        
-        if (*fileContent == '!') {
-            printTrie(trie, 0);
-        }
-        else if (getNode(trie, fileContent) != NULL) {
-            printf("%s\n", functionContent);
-            endNode = getNode(trie, fileContent);
-            if (endNode->subtrie == NULL)
-                printf("(EMPTY)\n");
-            else
-                printTrie(endNode->subtrie, 1);
-        }
-        else if (getNode(trie, fileContent) == NULL) {
-            printf("%s\n", functionContent);
-            printf("(INVALID STRING)\n");
-        }
-    }
     
     return 0;
 }
