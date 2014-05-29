@@ -13,13 +13,11 @@
 #include <string.h>
 #include <ctype.h> 
 
-
 typedef struct TrieNode {
     int count;
     TrieNode *children[26];
     TrieNode *subtrie;
 } TrieNode;
-
 
 TrieNode *createTrieNode(TrieNode *newLeaf)
 {
