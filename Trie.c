@@ -5,8 +5,8 @@
 @  Copyright (c) 2013 francis caccavale. All rights reserved.
 */
 
-#define STRINGSIZE 1024 /* (tangential amount of chars in a word.) */
-#define WordPerSent 21	/* (tangential amount of words in a sentence.) */
+#define STRINGSIZE 1024 /* (arbitrary amount of chars in a word.) */
+#define WordPerSent 21	/* (arbitrary amount of words in a sentence.) */
 
 #include <stdio.h>
 #include <stdlib.h>
